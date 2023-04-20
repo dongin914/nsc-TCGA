@@ -33,24 +33,24 @@ def train_nsc_models(x_train, t_train, e_train, x_dev, t_dev, e_dev, x_val, t_va
         'act': ['Tanh'],
         'batch': [100, 250],
     }
-   
-params = ParameterSampler(param_grid, 10, random_state=42)
-gc.collect()
-torch.cuda.empty_cache()
-models = []
 
-for param in params:
-    model = NeuralSurvivalCluster(layers=param['layers'], act=param['act'], k=param['k'],
-                                  layers_surv=param['layers_surv'], representation=param['representation'])
+    params = ParameterSampler(param_grid, 200, random_state=42)
+    gc.collect()
+    torch.cuda.empty_cache()
+    models = []
 
-    model.fit(x_train, t_train, e_train, n_iter=10, bs=param['batch'],
-              lr=param['learning_rate'], val_data=(x_dev, t_dev, e_dev))
+    for param in params:
+        model = NeuralSurvivalCluster(layers=param['layers'], act=param['act'], k=param['k'],
+                                      layers_surv=param['layers_surv'], representation=param['representation'])
 
-    nll = model.compute_nll(x_val, t_val, e_val)
-    if not (np.isnan(nll)):
-        models.append([nll, model])
-    else:
-        print("WARNING: Nan Value Observed")
+        model.fit(x_train, t_train, e_train, n_iter=10, bs=param['batch'],
+                  lr=param['learning_rate'], val_data=(x_dev, t_dev, e_dev))
 
-best_model = min(models, key=lambda x: x[0])
-return best_model[1]
+        nll = model.compute_nll(x_val, t_val, e_val)
+        if not (np.isnan(nll)):
+            models.append([nll, model])
+        else:
+            print("WARNING: Nan Value Observed")
+
+    best_model = min(models, key=lambda x: x[0])
+    return best_model[1]
