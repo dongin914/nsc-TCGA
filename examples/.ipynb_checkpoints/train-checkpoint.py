@@ -34,7 +34,7 @@ def train_nsc_models(x_train, t_train, e_train, x_dev, t_dev, e_dev, x_val, t_va
         'batch': [100, 250],
     }
 
-    params = ParameterSampler(param_grid, 200, random_state=42)
+    params = ParameterSampler(param_grid, 280, random_state=42)
     gc.collect()
     torch.cuda.empty_cache()
     models = []
