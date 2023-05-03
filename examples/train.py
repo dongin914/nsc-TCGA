@@ -23,10 +23,11 @@ def preprocess_data(x, t, e):
     return x_train, x_test, t_train, t_test, e_train, e_test, x_dev, x_val, t_dev, t_val, e_dev, e_val, times_ddh
 
 def train_nsc_models(x_train, t_train, e_train, x_dev, t_dev, e_dev, x_val, t_val, e_val):
-    layers = [[50], [50, 50], [50, 50, 50], [100], [100, 100], [100, 100, 100]]
-    param_grid = {
-        'learning_rate': [1e-3, 1e-4],
-        'layers_surv': layers,
+    layers = [[50], [50, 50], [50, 50, 50], [100], [1import numpy as np
+
+x = np.load('../ProcessedData/GeneCount.npy',allow_pickle=True)
+t = np.load('../ProcessedData/TTE.npy',allow_pickle=True)
+e = np.load('../ProcessedData/Event.npy',allow_pickle=True)
         'k': [2],
         'representation': [50, 100],
         'layers': layers,
