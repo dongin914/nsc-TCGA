@@ -1,3 +1,4 @@
+import os
 import numpy as np
 from sksurv.metrics import concordance_index_ipcw, brier_score, cumulative_dynamic_auc
 import matplotlib.pyplot as plt
@@ -36,5 +37,7 @@ def plot_clusters(times_cluster, clusters):
     ax.legend(title='Clusters')
     ax.set_xlabel('Time')
     ax.set_ylabel('Survival Probability')
-    plt.show()
-    plt.savefig("graph.png")
+    if not os.path.exists('../results'):
+        os.makedirs('../results')
+    plt.savefig('../results/nsc_TCGA.png')
+    plt.close()

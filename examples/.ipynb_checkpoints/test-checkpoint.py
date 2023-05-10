@@ -94,17 +94,6 @@ for horizon in enumerate(horizons):
 
 times_cluster = np.quantile(t, np.linspace(0, 1, 100))
 clusters = model.survival_cluster(minmax(times_cluster).tolist(), 1)
-pd.DataFrame(clusters, index = times_cluster).plot()
-plt.grid(alpha = 0.3)
-plt.ylim(0, 1)
-plt.legend(title = 'Clusters')
-plt.xlabel('Time')
-plt.ylabel('Survival Probability')
-plt.show()
-plt.savefig("graph.png")
-
-times_cluster = np.quantile(t, np.linspace(0, 1, 100))
-clusters = model.survival_cluster(minmax(times_cluster).tolist(), 1)
 
 fig, ax = plt.subplots()
 
