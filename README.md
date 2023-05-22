@@ -1,5 +1,3 @@
-# nsc-TCGA
-
 NeuralSurvivalClustering 💥
 NeuralSurvivalClustering (NSC) offers benchmarking for various techniques used in survival analysis. The benchmarking dataset employed is the TCGA data.
 
