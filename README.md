@@ -11,7 +11,7 @@ This project has evolved from the original NSC methodology as introduced by Jean
 We wholeheartedly appreciate the substantial efforts of the original authors in creating the NSC technology, the invaluable foundation for our project.
 
 ## Technical Specifications :wrench:
-- Development Environment: torch 1.7.1+cu110
+- Development Environment: torch 1.7.1+cu110(cudnn8.0)
 
 ## Software Prerequisites :books:
 Ensure to use the following versions of the libraries:
