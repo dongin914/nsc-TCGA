@@ -30,5 +30,5 @@ This benchmark has been successfully replicated in a Windows environment. :compu
 For running in a Jupyter Notebook environment, please follow these steps:
 
 - Start with the execution of dataprocessing as stated above.
-- Afterwards, execute clustering_TCGA.ipynb. :arrow_forward: 
+- Afterwards, execute example/clustering_TCGA.ipynb. :arrow_forward: 
  
