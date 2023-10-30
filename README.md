@@ -24,7 +24,7 @@ Ensure to use the following versions of the libraries:
 This benchmark has been successfully replicated in a Windows environment. :computer:
 
 ## Process of Execution :runner:
-- Initiate the data preprocessing by executing example/dataprocessing.ipynb. :arrow_forward:
+- Initiate the data preprocessing by executing examples/dataprocessing.ipynb. :arrow_forward:
 - Subsequently, in the terminal, run `python main.py`. :arrow_forward:
 
 For running in a Jupyter Notebook environment, please follow these steps:
